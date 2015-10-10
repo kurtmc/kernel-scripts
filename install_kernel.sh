@@ -16,12 +16,3 @@ LABEL $KERNELRELEASE
 	LINUX ../vmlinuz_$KERNELRELEASE
 	APPEND root=/dev/sda1 rw
 	INITRD ../initramfs_$KERNELRELEASE.img" >> /boot/syslinux/syslinux.cfg
-
-
-
-
-
-
-
-
-
