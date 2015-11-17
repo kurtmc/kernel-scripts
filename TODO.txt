@@ -1,0 +1,3 @@
+- Instead of appending to syslinux.cfg, check if it's already added
+- Create tools to clean /boot and /lib/modules and /lib64/modules
+- A tool for creating bootctl entries
