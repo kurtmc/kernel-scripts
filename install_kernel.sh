@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo make modules_install
+make modules_install
 
 # Read KERNELRELEASE from include/config/kernel.release (if it exists) (This line is stolen from the linux kernel Makefile)
 KERNELRELEASE=$(cat include/config/kernel.release 2> /dev/null)
