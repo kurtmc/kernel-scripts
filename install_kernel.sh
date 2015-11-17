@@ -7,7 +7,7 @@ KERNELRELEASE=$(cat include/config/kernel.release 2> /dev/null)
 cp -v arch/x86/boot/bzImage /boot/vmlinuz_$KERNELRELEASE
 
 # make initial RAM disk
-mkinitcpio -c /etc/mkinitcpio.conf -g /boot/initramfs_$KERNELRELEASE.img
+mkinitcpio -k /boot/vmlinuz_$KERNELRELEASE -c /etc/mkinitcpio.conf -g /boot/initramfs_$KERNELRELEASE.img
 
 # update /boot/syslinux/syslinux.cfg
 echo "
