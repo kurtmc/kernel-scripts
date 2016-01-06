@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Check if root
+if [ "$EUID" -ne 0 ]; then
+	echo "Can only install kernel as root"
+	exit
+fi
+
+# Variables
+ROOT_DEV=/dev/sde1
+
 make modules_install
 
 # Read KERNELRELEASE from include/config/kernel.release (if it exists) (This line is stolen from the linux kernel Makefile)
@@ -16,5 +25,5 @@ echo "
 LABEL $KERNELRELEASE
 	MENU LABEL $KERNELRELEASE
 	LINUX ../vmlinuz_$KERNELRELEASE
-	APPEND root=/dev/sda1 rw
+	APPEND root=$ROOT_DEV rw
 	INITRD ../initramfs_$KERNELRELEASE.img" >> /boot/syslinux/syslinux.cfg
