@@ -7,7 +7,7 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Variables
-ROOT_DEV=/dev/sde1
+ROOT_DEV=/dev/mapper/VolGroup00-lvroot
 
 make modules_install
 
