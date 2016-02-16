@@ -1,0 +1,9 @@
+function pre {
+	# Custom code
+	echo "Pre"
+}
+
+function post {
+	# Custom code
+	echo "Post"
+}

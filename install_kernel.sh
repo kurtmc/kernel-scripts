@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Functions to run before and after installation
+source hooks.sh
+
+exit
+
 # Check if root
 if [ "$EUID" -ne 0 ]; then
 	echo "Can only install kernel as root"
@@ -7,7 +12,9 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Variables
-ROOT_DEV=/dev/mapper/VolGroup00-lvroot
+ROOT_DEV="/dev/mapper/cryptroot cryptdevice=/dev/sda1:cryptroot"
+
+pre
 
 make modules_install
 
@@ -27,3 +34,5 @@ LABEL $KERNELRELEASE
 	LINUX ../vmlinuz_$KERNELRELEASE
 	APPEND root=$ROOT_DEV rw
 	INITRD ../initramfs_$KERNELRELEASE.img" >> /boot/syslinux/syslinux.cfg
+
+post
