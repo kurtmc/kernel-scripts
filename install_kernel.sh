@@ -3,8 +3,6 @@
 # Functions to run before and after installation
 source hooks.sh
 
-exit
-
 # Check if root
 if [ "$EUID" -ne 0 ]; then
 	echo "Can only install kernel as root"
