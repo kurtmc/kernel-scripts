@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Functions to run before and after installation
-source hooks.sh
+# Functions and variables
+source config.sh
 
 # Check if root
 if [ "$EUID" -ne 0 ]; then
@@ -9,10 +9,7 @@ if [ "$EUID" -ne 0 ]; then
 	exit
 fi
 
-# Variables
-ROOT_DEV="/dev/mapper/cryptroot cryptdevice=/dev/sda1:cryptroot"
-
-pre
+pre-install
 
 make modules_install
 
@@ -33,4 +30,4 @@ LABEL $KERNELRELEASE
 	APPEND root=$ROOT_DEV rw
 	INITRD ../initramfs_$KERNELRELEASE.img" >> /boot/syslinux/syslinux.cfg
 
-post
+post-install

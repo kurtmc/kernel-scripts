@@ -1,0 +1,17 @@
+ROOT_DEV="/dev/mapper/cryptroot cryptdevice=/dev/sda1:cryptroot"
+
+function pre-install {
+	echo "pre-install hook"
+}
+
+function post-install {
+	echo "post-install hook"
+}
+
+function pre-compile {
+	echo "pre-compile hook"
+}
+
+function post-compile {
+	echo "post-compile hook"
+}
