@@ -1,12 +1,11 @@
 #!/bin/bash
 
-if [ ! -f config.sh ]; then
+if [ ! -f $(dirname $0)/config.sh ]; then
 	echo "You must add a config.sh file"
 	exit 1
 fi
 
-# Functions and variables
-source config.sh
+source $(dirname $0)/config.sh
 
 # Check if root
 if [ "$EUID" -ne 0 ]; then

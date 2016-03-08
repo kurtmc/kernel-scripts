@@ -1,11 +1,11 @@
 #!/bin/bash
 
-if [ ! -f config.sh ]; then
+if [ ! -f $(dirname $0)/config.sh ]; then
 	echo "You must add a config.sh file"
 	exit 1
 fi
 
-source config.sh
+source $(dirname $0)/config.sh
 
 pre-compile
 
